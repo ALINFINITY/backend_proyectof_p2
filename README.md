@@ -30,7 +30,7 @@
 
 ## Description
 
-- Este proyecto esta desarrollado en Nest JS, es el Back-End de un PWA de gestión empresaria.
+- Este proyecto esta desarrollado en Nest JS, es el Back-End de un PWA de gestión empresarial.
 
 - Este proyecto utiliza Type ORM para interactuar con la base de datos.
 
@@ -60,7 +60,7 @@ git clone https://github.com/ALINFINITY/backend_proyectof_p2.git
 4: Ejecute el siguiente comando para instalar las dependencias del proyecto
 
 ```bash
-$ npm install
+npm install
 ```
 
 5: Ejecute el siguiente comando para desplegar el proyecto
