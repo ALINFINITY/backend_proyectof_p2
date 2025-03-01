@@ -24,7 +24,7 @@ export class UsuarioService {
   async findOne(id: number): Promise<Usuario> {
     const user = await this.usuarioRepository.findOne({
       where: { id_usuario: id },
-      relations: ['roles','auth'],
+      relations: ['roles', 'auth'],
     });
 
     if (!user) {
@@ -90,5 +90,12 @@ export class UsuarioService {
     return this.usuarioRepository.save(newUser);
   }
 
+  async update(id: number, usuario: Partial<Usuario>): Promise<Usuario | null> {
+    await this.usuarioRepository.update({ id_usuario: id }, usuario);
+    return this.findOne(id);
+  }
 
+  async delete(id: number): Promise<void> {
+    await this.usuarioRepository.delete({ id_usuario: id });
+  }
 }

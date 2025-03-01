@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  NotFoundException,
+  Param,
+  ParseIntPipe,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
 import { find } from 'rxjs';
 import { Usuario } from './usuario.entity';
@@ -18,10 +28,10 @@ export class UsuarioController {
   }
 
   @Post()
-  async create(@Body() data: Partial<Usuario>):Promise<Usuario>{
+  async create(@Body() data: Partial<Usuario>): Promise<Usuario> {
     return await this.usuarioService.create(data);
   }
-  
+
   @Post(':userId/rol/:rolId')
   async asignarRol(
     @Param('userId', ParseIntPipe) userId: number,
@@ -38,5 +48,21 @@ export class UsuarioController {
     return this.usuarioService.asignarEmpresa(userId, empresaId);
   }
 
-  
+  @Put(':id')
+  async update(
+    @Param('id') id: number,
+    @Body() usuario: Partial< Usuario>,
+  ): Promise<Usuario | null> {
+    return this.usuarioService.update(id, usuario);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: number): Promise<{ message: string }> {
+    try {
+      await this.usuarioService.delete(id);
+      return { message: 'Usuario eliminado correctamente' };
+    } catch (error) {
+      throw new NotFoundException('Error al eliminar el usuario');
+    }
+  }
 }
