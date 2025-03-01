@@ -47,11 +47,15 @@ export class ProductoService {
     const producto = await this.productoRepository.findOne({
       where: {
         id_producto: productoId,
-      }
+      },
     });
 
-    const categoria = await this.categoriaRepository.findOne({where: {id_categoria: categoriaId}});
-    const inventario = await this.inventarioRepository.findOne({where: {id_inventario: inventarioId}});
+    const categoria = await this.categoriaRepository.findOne({
+      where: { id_categoria: categoriaId },
+    });
+    const inventario = await this.inventarioRepository.findOne({
+      where: { id_inventario: inventarioId },
+    });
 
     if (!producto || !categoria || !inventario) {
       throw new NotFoundException(
@@ -63,5 +67,14 @@ export class ProductoService {
     producto.inventario = inventario;
 
     return this.productoRepository.save(producto);
+  }
+
+  async update(id: number, producto: Partial<Producto>): Promise<Producto | null> {
+    await this.productoRepository.update({ id_producto: id }, producto);
+    return this.findOne(id);
+  }
+
+  async delete(id: number): Promise<void> {
+    await this.productoRepository.delete({ id_producto: id });
   }
 }
