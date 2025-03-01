@@ -34,7 +34,7 @@
 
 - Este proyecto utiliza Type ORM para interactuar con la base de datos.
 
-- Este proyecto esta desarrollado para utilizarse en una base de datos PostgreaSQL, si quiere implementarlo en otra base de datos consulte la compatibilidad de tipos de dato.
+- Este proyecto esta desarrollado para utilizarse en una base de datos PostgreSQL, si quiere implementarlo en otra base de datos consulte la compatibilidad de tipos de datos.
 
 - Los parámetros de la conexión a la base de datos los puede cambiar en app.module.ts
 
@@ -69,7 +69,7 @@ $ npm install
 npm run start
 ```
 
-6: Ingrese al proyecto a través de localhost:3000
+6: Puede verificar los end-points a través de localhost:3000
 
 ## Compile and run the project
 
