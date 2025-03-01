@@ -32,9 +32,7 @@ export class InventarioService {
     return inventario;
   }
 
-  async create(
-    idEmpresa: number,
-  ): Promise<Inventario> {
+  async create(idEmpresa: number): Promise<Inventario> {
     const inventariotmp = this.inventarioRepository.create();
 
     const empresa = await this.empresaRepository.findOne({
@@ -47,5 +45,9 @@ export class InventarioService {
 
     inventariotmp.empresa = empresa;
     return await this.inventarioRepository.save(inventariotmp);
+  }
+
+  async delete(id: number): Promise<void> {
+    await this.inventarioRepository.delete({ id_inventario: id });
   }
 }

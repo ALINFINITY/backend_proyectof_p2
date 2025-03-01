@@ -7,6 +7,7 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
   ManyToMany,
   ManyToOne,
   OneToMany,
@@ -42,7 +43,8 @@ export class Usuario {
   ultima_conexion: Date;
 
   //Relación con Rol de muchos a muchos
-  @ManyToMany(() => Rol, (rol) => rol.usuarios)
+  @ManyToMany(() => Rol, (rol) => rol.usuarios, { cascade: false })
+  @JoinTable({ name: 'usuario_rol' })  
   roles: Rol[];
 
   //Relación con Empresa de uno a muchos

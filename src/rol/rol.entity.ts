@@ -13,7 +13,6 @@ export class Rol{
     @Column({nullable: true})
     descripcion: string;
 
-    @ManyToMany(()=>Usuario, us=>  us.roles )
-    @JoinTable({name: 'usuario_rol'})
+    @ManyToMany(() => Usuario, (us) => us.roles)
     usuarios: Usuario[];
 }

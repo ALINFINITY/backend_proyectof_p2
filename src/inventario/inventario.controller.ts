@@ -1,7 +1,9 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  NotFoundException,
   Param,
   ParseIntPipe,
   Post,
@@ -23,5 +25,15 @@ export class InventarioController {
     @Param('empresaId', ParseIntPipe) empresaId: number,
   ): Promise<Inventario> {
     return await this.inventarioService.create(empresaId);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: number): Promise<{ message: string }> {
+    try {
+      await this.inventarioService.delete(id);
+      return { message: 'Servicio eliminado correctamente' };
+    } catch (error) {
+      throw new NotFoundException('Error al eliminar el servicio');
+    }
   }
 }
