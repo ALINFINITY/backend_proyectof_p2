@@ -22,15 +22,54 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+# Integrantes
+
+- Quilumbaquin Pillisa Alan David 
+- Edison Henry Carvajal Pabón 
+- Luis Andres López mora
+
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Este proyecto esta desarrollado en Nest JS, es el Back-End de un PWA de gestión empresaria.
 
-## Project setup
+- Este proyecto utiliza Type ORM para interactuar con la base de datos.
+
+- Este proyecto esta desarrollado para utilizarse en una base de datos PostgreaSQL, si quiere implementarlo en otra base de datos consulte la compatibilidad de tipos de dato.
+
+- Los parámetros de la conexión a la base de datos los puede cambiar en app.module.ts
+
+- Si desea instalar un contenedor de base de datos compatible con este proyecto, ejecute el siguiente comando de docker en su terminal.
+
+```bash
+$ docker run -d --name postgres_pwa_pic -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=pwa_pic -p 5432:5432 postgres:latest
+```
+
+
+## Instalación del Proyecto
+
+1: Ubíquese en la carpeta en donde desea guardar el proyecto
+
+2: Ejecute el siguiente comando de Git para clonar el proyecto
+
+```bash
+git clone https://github.com/ALINFINITY/backend_proyectof_p2.git
+```
+
+3: Abra el proyecto dentro de un IDE de programación como VSCode
+
+4: Ejecute el siguiente comando para instalar las dependencias del proyecto
 
 ```bash
 $ npm install
 ```
+
+5: Ejecute el siguiente comando para desplegar el proyecto
+
+```bash
+npm run start
+```
+
+6: Ingrese al proyecto a través de localhost:3000
 
 ## Compile and run the project
 
@@ -57,19 +96,6 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
 ## Resources
 
