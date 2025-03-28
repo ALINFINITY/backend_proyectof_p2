@@ -25,8 +25,6 @@
 # Integrantes
 
 - Quilumbaquin Pillisa Alan David 
-- Edison Henry Carvajal Pabón 
-- Luis Andres López mora
 
 ## Description
 
